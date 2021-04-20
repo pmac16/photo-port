@@ -14,7 +14,13 @@ afterEach(cleanup); //afterEach is a global function from Jest
 
 describe('About component', () => { //describe is used to declare the compoenent we are testing 
     //First Test
-
-
+    it('renders', () => {
+        render(<About />);
+    });
     //Second Test
+    it('matches snapshot DOM node structure', () => {
+        //render About
+        const {asFragment}= render(<About/>);
+        expect(asFragment()).toMatchSnapshot();
+    })
 })
